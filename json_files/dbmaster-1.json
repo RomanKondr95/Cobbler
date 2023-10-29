@@ -1,0 +1,14 @@
+{
+    "name": "dbmaster-1",
+    "dns_name": "dbmstr-1.acc.abb",
+    "interface": "eth0",
+    "ip_address": [
+        "172.14.77.15"
+    ],
+    "mac_adress": [
+        [
+            "None"
+        ]
+    ],
+    "mtu": "1500"
+}

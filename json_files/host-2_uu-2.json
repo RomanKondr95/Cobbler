@@ -1,0 +1,14 @@
+{
+    "name": "host-2_uu-2",
+    "dns_name": "srv-002.acc.abb",
+    "interface": "eth0",
+    "ip_address": [
+        "172.14.13.13"
+    ],
+    "mac_adress": [
+        [
+            "00:26:57:00:1f:03"
+        ]
+    ],
+    "mtu": "1500"
+}

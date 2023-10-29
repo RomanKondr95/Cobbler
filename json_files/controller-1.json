@@ -1,0 +1,14 @@
+{
+    "name": "controller-1",
+    "dns_name": "cntr-1.acc.abb",
+    "interface": "eth0",
+    "ip_address": [
+        "172.14.77.12"
+    ],
+    "mac_adress": [
+        [
+            "None"
+        ]
+    ],
+    "mtu": "1500"
+}

@@ -1,0 +1,14 @@
+{
+    "name": "zabbix",
+    "dns_name": "zbx.acc.abb",
+    "interface": "eth0",
+    "ip_address": [
+        "172.14.77.18"
+    ],
+    "mac_adress": [
+        [
+            "None"
+        ]
+    ],
+    "mtu": "1500"
+}
