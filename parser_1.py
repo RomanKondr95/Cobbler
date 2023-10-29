@@ -31,6 +31,5 @@ def create_json(min_r,max_r):
             json.dump(entity, json_file, ensure_ascii=False, indent=4)
 
     print("JSON-файлы успешно созданы.")
-create_json(3,7)
-create_json(13,20)
+
 
