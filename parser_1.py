@@ -21,7 +21,8 @@ def create_json(min_r,max_r):
             "interface": "eth0",
             "ip_address": [ip.strip() for ip in row[5].split(",")],
             "mac_adress": ([item.strip() for item in row[6].split(",")] if row[6] is not None else ['None'],),
-            "mtu": "1500"
+            "mtu": "1500",
+            "profile": "astra-1.7.0-x86_64"
         }
 
         filename = f"json_files/{node_name}.json"
