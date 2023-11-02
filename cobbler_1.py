@@ -31,12 +31,12 @@ class CobblerHost:
                 f"--name={self.name} "
                 f"--profile={self.profile} "
                 f"--dns-name={self.dns_name} "
-                f"--interface={self.interface}")
+                f"--interface={self.interface} ")
             for ip in self.ip_address:
-                command += f"--ip-address={ip}"
+                command += f"--ip-address={ip} "
             if self.mac_address and self.mac_address[0] != "None":
                 for mac in self.mac_address:
-                    command += f"--mac-address={mac}"
+                    command += f"--mac-address={mac} "
             command += f"--mtu={self.mtu}"
 
             result = subprocess.run(
@@ -48,6 +48,7 @@ class CobblerHost:
             )
             if result.returncode == 0:
                 print(f"Successfully added {self.name} to Cobbler.")
+                return f"Successfully added {self.name} to Cobbler."
             else:
                 raise AddToCobblerExc(f"subprocess_err: {result.stderr}")
         except AddToCobblerExc as err:

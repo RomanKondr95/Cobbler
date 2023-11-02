@@ -29,7 +29,7 @@ def create_json(min_r, max_r):
             "dns_name": f"{row[3].lower()}.{row[4]}",
             "interface": "eth0",
             "ip_address": [ip.strip() for ip in row[5].split(",")],
-            "mac_adress": (
+            "mac_address": (
                 [item.strip() for item in row[6].split(",")]
                 if row[6] is not None
                 else ["None"],
