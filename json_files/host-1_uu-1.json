@@ -7,6 +7,6 @@
     "gateway": "172.14.13.254",
     "mtu": "1500",
     "profile": "astra-1.7.0-x86_64",
-    "hostname": "host-1_uu-1",
-    "name_servers": "10.40.19.5"
+    "hostname": "host1",
+    "name_servers": "172.14.77.19"
 }

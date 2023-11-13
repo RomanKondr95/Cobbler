@@ -67,35 +67,36 @@ class CobblerHost:
 
 def create_hosts():
     json_folder = "json_files"
+    data_list = []
 
     for filename in os.listdir(json_folder):
         if filename.endswith(".json"):
             full_path = os.path.join(json_folder, filename)
             with open(full_path, "r", encoding="utf-8") as json_file:
                 data = json.load(json_file)
+                data_list.append(data)
 
-        for host_data in data:
-            try:
-                host = CobblerHost(
-                    name=host_data["name"],
-                    profile=host_data["profile"],
-                    dns_name=host_data["dns_name"],
-                    interface=host_data["interface"],
-                    ip_address=host_data["ip_address"],
-                    mac_address=host_data["mac_address"],
-                    gateway=host_data["gateway"],
-                    mtu=host_data["mtu"],
-                    hostname=host_data["hostname"],
-                    name_servers=host_data["name_servers"]
-                )
-                host.add_to_cobbler()
-            except AddToCobblerExc as err:
-                # log
-                print('Add_to_cob', err)
-                # continue
-
-            except Exception as err:
-                # обработать ошибки/перехватить далее
-                # log
-                print('Unknow exc', err)
-                raise CreateHostExc from err
+    for host_data in data_list:
+        try:
+            host = CobblerHost(
+                name=host_data["name"],
+                profile=host_data["profile"],
+                dns_name=host_data["dns_name"],
+                interface=host_data["interface"],
+                ip_address=host_data["ip_address"],
+                mac_address=host_data["mac_address"],
+                gateway=host_data["gateway"],
+                mtu=host_data["mtu"],
+                hostname=host_data["hostname"],
+                name_servers=host_data["name_servers"]
+            )
+            host.add_to_cobbler()
+        except AddToCobblerExc as err:
+            # log
+            print('Add_to_cob', err)
+            # continue
+        except Exception as err:
+            # обработать ошибки/перехватить далее
+            # log
+            print('Unknow exc', err)
+            raise CreateHostExc from err

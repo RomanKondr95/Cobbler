@@ -1,11 +1,6 @@
-all: venv activate install fix_linting run
-
-
 venv:
 	python3 -m venv venv
 
-activate:
-	source venv/bin/activate
 
 install:
 	pip3 install -r requirements.txt

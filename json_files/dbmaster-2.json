@@ -3,10 +3,10 @@
     "dns_name": "dbmstr-2.acc.abb",
     "interface": "eth0",
     "ip_address": "172.14.77.16",
-    "mac_address": "00:16:3e:a3:ef:ba",
+    "mac_address": "00:16:3e:a7:b4:d5",
     "gateway": "172.14.77.254",
     "mtu": "1500",
     "profile": "astra-1.7.0-x86_64",
-    "hostname": "dbmaster-2",
-    "name_servers": "10.40.19.5"
+    "hostname": "dbmaster2",
+    "name_servers": "172.14.77.19"
 }

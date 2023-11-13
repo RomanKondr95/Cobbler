@@ -19,11 +19,21 @@ def is_english(text):
 
 
 def generate_mac_address():
-    mac = [0x00, 0x16, 0x3e]  # OUI
+    mac = [0x00, 0x16, 0x3e] 
     mac.extend(secrets.randbits(8) for _ in range(3)) 
     return ':'.join(map(lambda x: "%02x" % x, mac))
 
 
+def sanitize_hostname(name):
+    # Удаляю все дефисы, пробелы и нижние подчеркивания
+    name_without_symbols = re.sub(r'[-_\s]', '', name)
+
+    # Добавляю первую цифру, если она есть
+    digit_part = re.search(r'\d', name_without_symbols)
+    if digit_part:
+        return name_without_symbols[:digit_part.start()] + digit_part.group()
+    else:
+        return name_without_symbols
 
 def create_json(min_r, max_r):
     for row in sheet.iter_rows(min_row=min_r, max_row=max_r, values_only=True):
@@ -41,8 +51,8 @@ def create_json(min_r, max_r):
             "gateway": row[7],
             "mtu": "1500",
             "profile": "astra-1.7.0-x86_64",
-            "hostname": node_name,
-            "name_servers": "10.40.19.5",
+            "hostname": sanitize_hostname(node_name),
+            "name_servers": "172.14.77.19",
 
         }
 

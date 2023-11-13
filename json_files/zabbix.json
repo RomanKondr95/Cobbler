@@ -3,10 +3,10 @@
     "dns_name": "zbx.acc.abb",
     "interface": "eth0",
     "ip_address": "172.14.77.18",
-    "mac_address": "00:16:3e:e6:93:fb",
+    "mac_address": "00:16:3e:f6:49:41",
     "gateway": "172.14.77.254",
     "mtu": "1500",
     "profile": "astra-1.7.0-x86_64",
     "hostname": "zabbix",
-    "name_servers": "10.40.19.5"
+    "name_servers": "172.14.77.19"
 }

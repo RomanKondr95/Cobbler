@@ -39,7 +39,7 @@ class TestCreateHosts(unittest.TestCase):
             "--gateway=192.168.1.254 "
             "--mtu=1500 "
             "--hostname=host-1 "
-            "--name-servers=10.40.19.5"
+            "--name-servers=172.14.77.19"
         )
         mock_run.assert_called_with(
             expected_command,
@@ -68,7 +68,7 @@ class TestCreateHosts(unittest.TestCase):
             "gateway": "192.168.1.254",
             "mtu": "1500",
             "hostname": "host-1",
-            "name_servers": "10.40.19.5",
+            "name_servers": "172.14.77.19",
 
         }
         host = CobblerHost(**host_data)
