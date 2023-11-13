@@ -15,7 +15,10 @@ class TestCreateHosts(unittest.TestCase):
             "interface": "eth0",
             "ip_address": "192.168.1.1",
             "mac_address": "00:11:22:33:44:55",
-            "mtu": "1500"
+            "gateway": "192.168.1.254",
+            "mtu": "1500",
+            "hostname": "host-1",
+            "name_servers": "10.40.19.5",
         }
 
         # Мокирую выполнение subprocess.run
@@ -32,7 +35,11 @@ class TestCreateHosts(unittest.TestCase):
             "--profile=astra-1.7.0-x86_64 "
             "--dns-name=example.com "
             "--interface=eth0 --ip-address=192.168.1.1 "
-            "--mac-address=00:11:22:33:44:55 --mtu=1500"
+            "--mac-address=00:11:22:33:44:55 "
+            "--gateway=192.168.1.254 "
+            "--mtu=1500 "
+            "--hostname=host-1 "
+            "--name-servers=10.40.19.5"
         )
         mock_run.assert_called_with(
             expected_command,
@@ -58,7 +65,11 @@ class TestCreateHosts(unittest.TestCase):
             "interface": "eth0",
             "ip_address": "192.168.1.1",
             "mac_address": "00:11:22:33:44:55",
-            "mtu": "1500"
+            "gateway": "192.168.1.254",
+            "mtu": "1500",
+            "hostname": "host-1",
+            "name_servers": "10.40.19.5",
+
         }
         host = CobblerHost(**host_data)
         with self.assertRaises(AddToCobblerExc):

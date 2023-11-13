@@ -3,7 +3,10 @@
     "dns_name": "cntr-3.acc.abb",
     "interface": "eth0",
     "ip_address": "172.14.77.14",
-    "mac_address": "00:16:3e:60:91:60",
+    "mac_address": "00:16:3e:6b:24:d0",
+    "gateway": "172.14.77.254",
     "mtu": "1500",
-    "profile": "astra-1.7.0-x86_64"
+    "profile": "astra-1.7.0-x86_64",
+    "hostname": "controller-3",
+    "name_servers": "10.40.19.5"
 }

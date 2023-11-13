@@ -14,7 +14,7 @@ class CreateHostExc(Exception):
 
 class CobblerHost:
     def __init__(
-        self, name, profile, dns_name, interface, ip_address, mac_address, mtu
+        self, name, profile, dns_name, interface, ip_address, mac_address, gateway, mtu, hostname, name_servers
     ):
         self.name = name
         self.profile = profile
@@ -22,7 +22,10 @@ class CobblerHost:
         self.interface = interface
         self.ip_address = ip_address
         self.mac_address = mac_address
+        self.gateway = gateway
         self.mtu = mtu
+        self.hostname = hostname
+        self.name_servers = name_servers
 
     def add_to_cobbler(self):
         try:
@@ -34,7 +37,10 @@ class CobblerHost:
                 f"--interface={self.interface} "
                 f"--ip-address={self.ip_address} "
                 f"--mac-address={self.mac_address} "
-                f"--mtu={self.mtu}")
+                f"--gateway={self.gateway} "
+                f"--mtu={self.mtu} "
+                f"--hostname={self.hostname} "
+                f"--name-servers={self.name_servers}")
             # for ip in self.ip_address:
             #     command += f"--ip-address={ip} "
             # if self.mac_address != None:
@@ -77,7 +83,10 @@ def create_hosts():
                     interface=host_data["interface"],
                     ip_address=host_data["ip_address"],
                     mac_address=host_data["mac_address"],
+                    gateway=host_data["gateway"],
                     mtu=host_data["mtu"],
+                    hostname=host_data["hostname"],
+                    name_servers=host_data["name_servers"]
                 )
                 host.add_to_cobbler()
             except AddToCobblerExc as err:

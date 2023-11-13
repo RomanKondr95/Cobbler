@@ -37,9 +37,13 @@ def create_json(min_r, max_r):
             "dns_name": f"{row[3].lower()}.{row[4]}",
             "interface": "eth0",
             "ip_address": row[5], 
-            "mac_address":  row[6] if row[6] != None else generate_mac_address(),
+            "mac_address": row[6] if row[6] != None else generate_mac_address(),
+            "gateway": row[7],
             "mtu": "1500",
             "profile": "astra-1.7.0-x86_64",
+            "hostname": node_name,
+            "name_servers": "10.40.19.5",
+
         }
 
         filename = f"json_files/{node_name}.json"

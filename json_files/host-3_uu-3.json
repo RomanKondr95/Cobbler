@@ -4,6 +4,9 @@
     "interface": "eth0",
     "ip_address": "172.14.13.14",
     "mac_address": "00:26:57:00:1f:04",
+    "gateway": "172.14.13.254",
     "mtu": "1500",
-    "profile": "astra-1.7.0-x86_64"
+    "profile": "astra-1.7.0-x86_64",
+    "hostname": "host-3_uu-3",
+    "name_servers": "10.40.19.5"
 }
