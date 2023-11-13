@@ -3,6 +3,7 @@ import json
 import re
 from transliterate import translit
 import os
+import secrets
 
 book = o.load_workbook(
     "data.xlsx"
@@ -17,6 +18,13 @@ def is_english(text):
     return bool(re.match("^[a-zA-Z]+$", text))
 
 
+def generate_mac_address():
+    mac = [0x00, 0x16, 0x3e]  # OUI
+    mac.extend(secrets.randbits(8) for _ in range(3)) 
+    return ':'.join(map(lambda x: "%02x" % x, mac))
+
+
+
 def create_json(min_r, max_r):
     for row in sheet.iter_rows(min_row=min_r, max_row=max_r, values_only=True):
         node_name = (
@@ -28,12 +36,8 @@ def create_json(min_r, max_r):
             "name": node_name,
             "dns_name": f"{row[3].lower()}.{row[4]}",
             "interface": "eth0",
-            "ip_address": [ip.strip() for ip in row[5].split(",")],
-            "mac_address": (
-                [item.strip() for item in row[6].split(",")]
-                if row[6] is not None
-                else ["None"],
-            ),
+            "ip_address": row[5], 
+            "mac_address":  row[6] if row[6] != None else generate_mac_address(),
             "mtu": "1500",
             "profile": "astra-1.7.0-x86_64",
         }

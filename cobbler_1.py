@@ -31,13 +31,16 @@ class CobblerHost:
                 f"--name={self.name} "
                 f"--profile={self.profile} "
                 f"--dns-name={self.dns_name} "
-                f"--interface={self.interface} ")
-            for ip in self.ip_address:
-                command += f"--ip-address={ip} "
-            if self.mac_address and self.mac_address[0] != "None":
-                for mac in self.mac_address:
-                    command += f"--mac-address={mac} "
-            command += f"--mtu={self.mtu}"
+                f"--interface={self.interface} "
+                f"--ip-address={self.ip_address} "
+                f"--mac-address={self.mac_address} "
+                f"--mtu={self.mtu}")
+            # for ip in self.ip_address:
+            #     command += f"--ip-address={ip} "
+            # if self.mac_address != None:
+            #     # for mac in self.mac_address:
+            #     command += f"--mac-address={self.mac_address} "
+            # command += f"--mtu={self.mtu}"
 
             result = subprocess.run(
                 command,
@@ -72,10 +75,8 @@ def create_hosts():
                     profile=host_data["profile"],
                     dns_name=host_data["dns_name"],
                     interface=host_data["interface"],
-                    ip_address=host_data["ip_address"][0],
-                    mac_address=host_data["mac_address"][0][0]
-                    if host_data["mac_address"][0][0] != "None"
-                    else None,
+                    ip_address=host_data["ip_address"],
+                    mac_address=host_data["mac_address"],
                     mtu=host_data["mtu"],
                 )
                 host.add_to_cobbler()

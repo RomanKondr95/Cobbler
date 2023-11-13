@@ -13,8 +13,8 @@ class TestCreateHosts(unittest.TestCase):
             "profile": "astra-1.7.0-x86_64",
             "dns_name": "example.com",
             "interface": "eth0",
-            "ip_address": ["192.168.1.1"],
-            "mac_address": ["00:11:22:33:44:55"],
+            "ip_address": "192.168.1.1",
+            "mac_address": "00:11:22:33:44:55",
             "mtu": "1500"
         }
 
@@ -56,8 +56,8 @@ class TestCreateHosts(unittest.TestCase):
             "profile": "astra-1.7.0-x86_64",
             "dns_name": "example.com",
             "interface": "eth0",
-            "ip_address": ["192.168.1.1"],
-            "mac_address": ["00:11:22:33:44:55"],
+            "ip_address": "192.168.1.1",
+            "mac_address": "00:11:22:33:44:55",
             "mtu": "1500"
         }
         host = CobblerHost(**host_data)

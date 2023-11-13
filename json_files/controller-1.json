@@ -2,14 +2,8 @@
     "name": "controller-1",
     "dns_name": "cntr-1.acc.abb",
     "interface": "eth0",
-    "ip_address": [
-        "172.14.77.12"
-    ],
-    "mac_address": [
-        [
-            "None"
-        ]
-    ],
+    "ip_address": "172.14.77.12",
+    "mac_address": "00:16:3e:db:57:d2",
     "mtu": "1500",
     "profile": "astra-1.7.0-x86_64"
 }

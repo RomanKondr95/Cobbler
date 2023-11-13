@@ -30,15 +30,15 @@ class TestCreateJson(unittest.TestCase):
             host_1_data = json.load(json_file)
         self.assertEqual(host_1_data["name"], "host-1_uu-1")
         self.assertEqual(host_1_data["dns_name"], "srv-001.acc.abb")
-        self.assertEqual(host_1_data["ip_address"], ["172.14.13.12"])
-        self.assertEqual(host_1_data["mac_address"], [["00:26:57:00:1f:02"]])
+        self.assertEqual(host_1_data["ip_address"], "172.14.13.12")
+        self.assertEqual(host_1_data["mac_address"], "00:26:57:00:1f:02")
 
         with open("json_files/host-2_uu-2.json", "r", encoding="utf-8") as json_file:
             host_2_data = json.load(json_file)
         self.assertEqual(host_2_data["name"], "host-2_uu-2")
         self.assertEqual(host_2_data["dns_name"], "srv-002.acc.abb")
-        self.assertEqual(host_2_data["ip_address"], ["172.14.13.13"])
-        self.assertEqual(host_2_data["mac_address"], [["00:26:57:00:1f:03"]])
+        self.assertEqual(host_2_data["ip_address"], "172.14.13.13")
+        self.assertEqual(host_2_data["mac_address"], "00:26:57:00:1f:03")
 
 if __name__ == '__main__':
     unittest.main()

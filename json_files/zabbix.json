@@ -2,14 +2,8 @@
     "name": "zabbix",
     "dns_name": "zbx.acc.abb",
     "interface": "eth0",
-    "ip_address": [
-        "172.14.77.18"
-    ],
-    "mac_address": [
-        [
-            "None"
-        ]
-    ],
+    "ip_address": "172.14.77.18",
+    "mac_address": "00:16:3e:27:a7:ea",
     "mtu": "1500",
     "profile": "astra-1.7.0-x86_64"
 }
